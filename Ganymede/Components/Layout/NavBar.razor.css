@@ -1,0 +1,9 @@
+﻿.top-nav {
+    display: flex;
+    align-items: center;
+}
+
+.top-nav ::deep .mud-nav-link{
+    width: auto;
+    white-space: nowrap;
+}

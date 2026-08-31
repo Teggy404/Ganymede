@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Ganymede.Core/Ganymede.Core.csproj" />
+  <Project Path="Ganymede/Ganymede.csproj" />
+</Solution>
