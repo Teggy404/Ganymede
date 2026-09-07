@@ -1,0 +1,24 @@
+/* CSS for EditorLayout component */
+.editor-row {
+    display: flex;
+    height: calc(100vh - var(--mud-appbar-height));
+}
+
+.editor-canvas {
+    flex: 1;
+    overflow: auto;
+}
+
+.editor-leftarrow ::deep .mud-icon-button {
+    padding: 1px;
+    border-radius: 0;
+    height: 100%;
+    background-color: var(--mud-palette-drawer-background);
+}
+
+.editor-rightarrow ::deep .mud-icon-button {
+    padding: 1px;
+    border-radius: 0;
+    height: 100%;
+    background-color: var(--mud-palette-drawer-background);
+}
