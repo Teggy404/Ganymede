@@ -13,7 +13,7 @@
         Variant="DrawerVariant.Persistent"
         Elevation="0"
         ClipMode="DrawerClipMode.Always"
-        Width="200px">
+        Width="100px">
     </MudDrawer>
 
     <MudDrawer @bind-Open="_rightOpen"
@@ -21,7 +21,7 @@
         Variant="DrawerVariant.Persistent"
         Elevation="0"
         ClipMode="DrawerClipMode.Always"
-        Width="300px"
+        Width="25%"
     >
    
     </MudDrawer>
@@ -47,10 +47,10 @@
 </div>
 
 @code {
-    private bool _leftOpen = false;
+    private bool _leftOpen = true;
     private void leftAlternate() => _leftOpen = !_leftOpen;
 
-    private bool _rightOpen = false;
+    private bool _rightOpen = true;
     private void rightAlternate() => _rightOpen = !_rightOpen;
 }
 

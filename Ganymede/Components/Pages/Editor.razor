@@ -1,7 +1,39 @@
 ﻿@page "/editor"
 @layout EditorLayout
+@implements IAsyncDisposable
+@inject IJSRuntime JS
 
+<div @ref="container" class="container">
+    <img @ref="image" src="https://i.imgur.com/VulK9QU.jpeg" class="image" draggable="false" />
+</div>
 
 @code {
+    private ElementReference container;
+    private ElementReference image;
 
+    private IJSObjectReference? module;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/ImageEditor.js");
+            await module.InvokeVoidAsync("attachPanZoom", container, image);
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (module is not null)
+        {
+            try
+            {
+                await module.DisposeAsync();
+            }
+            catch (JSDisconnectedException)
+            {
+
+            }
+        }
+    }
 }
