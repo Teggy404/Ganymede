@@ -12,6 +12,8 @@
     const MAX_SCALE = 20;
 
     function apply() {
+        x = Math.min(container.clientWidth, Math.max(x, -(image.offsetWidth * scale)))
+        y = Math.min(container.clientHeight, Math.max(y, -(image.offsetHeight * scale)))
         image.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
     }
 
@@ -27,6 +29,7 @@
 
         const newScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, scale * factor));
 
+        //handle case where newscale is clamped and scale isnt changed by a factor of 1.1 or 0.9
         const ratio = newScale / scale;
 
         x = cursorX - (cursorX - x) * ratio;
