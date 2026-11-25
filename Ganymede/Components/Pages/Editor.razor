@@ -1,16 +1,16 @@
 ﻿@page "/editor"
+@using Ganymede.Core
 @layout EditorLayout
 @implements IAsyncDisposable
 @inject IJSRuntime JS
 
-<div @ref="container" class="container">
-    <img @ref="image" src="https://i.imgur.com/VulK9QU.jpeg" class="image" draggable="false" />
+<div @ref="containerRef" class="container">
+    <img @ref="imageRef" src="https://i.imgur.com/VulK9QU.jpeg" class="image" draggable="false" />
 </div>
 
 @code {
-    private ElementReference container;
-    private ElementReference image;
-
+    private ElementReference containerRef;
+    private ElementReference imageRef;
     private IJSObjectReference? module;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -18,7 +18,7 @@
         if (firstRender)
         {
             module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/ImageEditor.js");
-            await module.InvokeVoidAsync("attachPanZoom", container, image);
+            await module.InvokeVoidAsync("attachPanZoom", containerRef, imageRef);
         }
     }
 

@@ -21,6 +21,10 @@
     container.addEventListener("wheel", (e) => {
         e.preventDefault();
 
+
+        //e.client - pointer position
+        //rect - container position 
+        //cursor - pointer position relative to countainer
         const rect = container.getBoundingClientRect()
         const cursorX = e.clientX - rect.left;
         const cursorY = e.clientY - rect.top;

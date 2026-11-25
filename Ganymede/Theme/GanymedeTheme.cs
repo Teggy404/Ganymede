@@ -66,7 +66,7 @@ public class GanymedeTheme
             DefaultBorderRadius = "3px",
             DrawerWidthLeft     = "280px",
             DrawerWidthRight    = "300px",
-            AppbarHeight        = "48px"
+            AppbarHeight        = "60px"
         },
 
         Shadows = new Shadow()
